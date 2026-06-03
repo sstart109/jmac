@@ -89,7 +89,7 @@ function generateHtml(sermons) {
     }
 
     .container {
-      max-width: 1400px;
+      max-width: 100%;
       margin: 0 auto;
       width: 100%;
     }
