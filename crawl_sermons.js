@@ -116,43 +116,7 @@ function generateHtml(sermons) {
       letter-spacing: 1px;
     }
 
-    .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
 
-    .stat-item {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      padding: 0.75rem 1.5rem;
-      border-radius: 12px;
-      backdrop-filter: blur(10px);
-      box-shadow: var(--glow-gold);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1 1 calc(33.33% - 1rem);
-      min-width: 160px;
-    }
-
-    .stat-value {
-      font-size: clamp(1.35rem, 3vw, 1.75rem);
-      font-weight: 700;
-      color: var(--gold-primary);
-      font-family: 'Cinzel', serif;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-top: 0.25rem;
-      text-align: center;
-    }
 
     .controls-card {
       background: var(--bg-card);
@@ -374,10 +338,7 @@ function generateHtml(sermons) {
     }
 
     @media (max-width: 768px) {
-      /* Stats bar adjustments */
-      .stat-item {
-        flex: 1 1 calc(50% - 1rem);
-      }
+
 
       /* Transform table to mobile cards */
       table, thead, tbody, th, td, tr {
@@ -490,9 +451,7 @@ function generateHtml(sermons) {
       .search-row {
         grid-template-columns: 1fr;
       }
-      .stat-item {
-        flex: 1 1 100%;
-      }
+
     }
   </style>
 </head>
@@ -502,20 +461,7 @@ function generateHtml(sermons) {
       <h1>John MacArthur Sermons Index</h1>
       <p class="subtitle">Grace to You Historical Archives (1969 - Present)</p>
       
-      <div class="stats-bar">
-        <div class="stat-item">
-          <div class="stat-value" id="stat-total">${total}</div>
-          <div class="stat-label">Total Sermons</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" id="stat-audio">${withAudio}</div>
-          <div class="stat-label">Audio MP3s Available</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-value" id="stat-transcripts">${total}</div>
-          <div class="stat-label">Transcripts Linked</div>
-        </div>
-      </div>
+
     </header>
 
     <div class="controls-card">
@@ -639,9 +585,7 @@ function generateHtml(sermons) {
         return sortOrder === 'desc' ? dateB.localeCompare(dateA) : dateA.localeCompare(dateB);
       });
 
-      // Update counters
-      document.getElementById('stat-total').textContent = filteredSermons.length;
-      document.getElementById('stat-audio').textContent = filteredSermons.filter(s => s.audio && s.audio.url).length;
+
 
       currentPage = 1;
       renderTable();
